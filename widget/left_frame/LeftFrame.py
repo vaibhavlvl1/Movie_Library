@@ -51,6 +51,9 @@ class LeftFrame:
                                  COLORS.ORANGE, COLORS.BLACK,
                                  18, 2,handle_click=self.handle_click,)
 
+                if menu_key=='home':
+                    self.selected_button_color(button.button)
+
     def manage_button_colors(self,event):
         for child in event.widget.master.winfo_children():
             if child==event.widget:
@@ -58,3 +61,5 @@ class LeftFrame:
             else:
                 child.configure(bg=COLORS.BLACK,fg=COLORS.ORANGE)
 
+    def selected_button_color(self,button):
+        button.configure(bg=COLORS.ORANGE, fg=COLORS.WHITE)
