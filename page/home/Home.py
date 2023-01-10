@@ -37,7 +37,6 @@ class Home:
                               fg=COLORS.WHITE,
                               bg=COLORS.BLACK)
         project.place(x=200, y=600)
-
     def add_frame(self):
         self.frame.pack(side=self.side,
                         fill=tk.BOTH,expand=True)

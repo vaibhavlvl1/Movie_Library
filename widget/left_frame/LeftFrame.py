@@ -3,6 +3,7 @@ from data.colors import COLORS
 from data.menus import MENU
 # exact import to avoid circular error
 from widget.button.Button import Buttons
+from widget.right_frame.RightFrame import RightFrame
 
 class LeftFrame:
     """
@@ -23,6 +24,19 @@ class LeftFrame:
     # method for click event of menu button
     def handle_click(self,event):
         self.manage_button_colors(event)
+        page_name = str(event.widget).split('.')[2]
+        #print('Page {} is clicked'.format(page_name))
+
+        # self is left frame whose master is root home page
+        rightFrame = self.master.children['right frame']
+
+        # destroy children
+        RightFrame.destroy_children(rightFrame)
+
+        # add new page as page_name
+        RightFrame.frame_content(rightFrame,page_name)
+
+
 
     def add_menus(self):
         # add menu in loop . menu is dict
